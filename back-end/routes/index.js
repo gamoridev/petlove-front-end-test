@@ -1,12 +1,11 @@
 const express = require('express');
+const path = require('path');
+
 const router = express.Router();
 
 // index route
 router.get('/', function (req, res) {
-    res.status(200).send({
-        title: "API em Express Node para ViaCep",
-        version: "0.0.1"
-    });
+    res.sendFile(path.join(__dirname, '../../front-end/build', 'index.html'));
 });
 
 // 404 route

@@ -4,7 +4,7 @@
   "description": "Projeto para teste de Desenvolvedor Front-End na Petlove.",
   "main": "index.js",
   "scripts": {
-    "start": "cd back-end && node server.js"
+    "start": "cd back-end && nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.19.0",
-    "express": "^4.17.0"
+    "express": "^4.17.0",
+    "path": "^0.12.7"
   }
 }
