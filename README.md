@@ -1,23 +1,32 @@
 # petlove-front-end-test
 Projeto do teste de Front-End para a Petlove.
 
-## back-end
-
-Servidor em NodeJS utilizando Express.
-Para inicializar o servidor:
-```
-	npm start
-```
-Será inicializado port default em `localhost:3001`.
- 
 ## front-end
 
 Projeto de front-end feito em React.
 É necessário gerar um build do projeto para que o servidor consiga encontrar os arquivos estáticos do projeto, localizados em `front-end/build/`.
-Sendo assim, execute (na raiz do projeto ou na pasta `front-end/`:
+Sendo assim, execute na raiz do projeto:
 ```
+	cd front-end && \
+	npm install && \
 	npm run build
 ```
+ou em `front-end/`:
+```
+	npm install && \
+	npm run build
+```
+
+## back-end
+
+Servidor em NodeJS utilizando Express.
+Para inicializar o servidor (na *raiz* do projet):
+```
+	npm install && \
+	npm start
+```
+Será inicializado port default em `localhost:3001`.
+ 
 
 ## tests
 
