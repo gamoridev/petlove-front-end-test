@@ -5,6 +5,6 @@ export async function getCep(cep) {
             return response.json();
         })
         .catch(error => {
-            throw new Error('Erro ao carregar os artistas, cheque suas crendeciais e tente novamente.');
+            throw new Error('Erro ao conectar com o servidor, tente novamente mais tarde.');
         })
 }

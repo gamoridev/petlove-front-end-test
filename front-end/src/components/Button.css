@@ -1,0 +1,11 @@
+.Button {
+    margin: 1px;
+    min-height: 30px;
+    height: 6.7vh;
+    width: 18%;
+    min-width: 50px;
+    font-size: calc(.8vw + .8vh);
+    border: 1px solid #DEDEDE; 
+    background-color: #444444;
+    color: #FFFFFF;
+}

@@ -1,0 +1,16 @@
+.Info__list {
+	width: 100%;
+	font-size: calc(1vw + 1vh);
+	color: #696969;
+}
+
+.Info__term {
+	float: left;
+	font-weight: bold;
+	text-transform: capitalize;
+	margin-right: 5px;
+}
+
+.Info__description {
+	margin: 0;
+}

@@ -1,8 +1,10 @@
 import React from 'react';
+import './Panel.css';
 
-function Panel({ children }) {
+function Panel({ error, children }) {
+	const errorClass = error ? "Panel--error" : "";
     return (
-        <section className="panel">
+        <section className={`Panel ${errorClass}`}>
             {children}
         </section>
     );

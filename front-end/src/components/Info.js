@@ -1,14 +1,16 @@
 import React from 'react';
+import './Info.css';
 
 function Info({ data }) {
     return (
-        <ul>
+        <dl className="Info__list">
             {Object.keys(data).map((e, k) => (
-                <li key={k}>
-                    {e}: {data[e]}
-                </li>
+            	<React.Fragment key={k}>
+	                <dt className="Info__term">{e}:</dt>
+	                <dd className="Info__description">{data[e]}</dd>
+            	</React.Fragment>
             ))}
-        </ul>
+        </dl>
     );
 }
 

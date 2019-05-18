@@ -1,0 +1,16 @@
+.Panel {
+    border: 1px solid #DEDEDE;
+    background-color: #FFFFFF;
+    min-width: 200px;
+    width: 50%;
+    min-height: 70px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 0 20px;
+}
+
+.Panel.Panel--error {
+    color: red;
+}

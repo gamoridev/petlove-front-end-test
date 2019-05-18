@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Panel from './components/Panel';
-import Search from './components/Search';
+import Input from './components/Input';
 import Button from './components/Button';
 import Info from './components/Info';
 import { getCep } from './utils/api';
+import './App.css';
 import './index.css';
 
 const CEP_LENGTH = 8;
@@ -14,7 +15,8 @@ class App extends Component {
         this.state = {
             cep: '',
             loading: false,
-            cepInfo: null
+            cepInfo: null,
+            message: ''
         }
 
         this.handleChangeCep = this.handleChangeCep.bind(this);
@@ -31,32 +33,58 @@ class App extends Component {
     handleClickSearch(){
         const { cep } = this.state;
 
-        this.setState({ loading: true })
-        getCep(cep)
-            .then((res) => {
-                this.setState({ 
-                    cepInfo: res.data, 
-                    loading: false 
+        if(cep){
+            this.setState({ loading: true })
+            getCep(cep)
+                .then((res) => {
+                    this.setState({ loading: false })
+                    if(res.data){
+                        if(res.data.erro){
+                            this.setState({ 
+                                cepInfo: null, 
+                                message: 'Nenhum CEP encontrado!'
+                            })
+                        } else if(res.data.cep){
+                            this.setState({ 
+                                cepInfo: res.data, 
+                                message: ''
+                            })
+                        }
+                    } else if (res.message) {
+                        this.setState({ 
+                            cepInfo: null,
+                            message: res.message
+                        })
+                    }
                 })
-            })
+                .catch((err) => {
+                    this.setState({ 
+                        loading: false,
+                        cepInfo: null,
+                        message: err.message
+                    })
+                })
+        } else {
+            this.setState({ message: 'Informe um CEP!' })
+        }
     }
 
     render(){
-        const { cep, loading, cepInfo } = this.state;
+        const { cep, loading, cepInfo, message } = this.state;
         return (
-            <div className="container">
+            <div className="App">
                 <Panel>
-                    <Search cep={cep} setCep={this.handleChangeCep}/>
+                    <Input cep={cep} setCep={this.handleChangeCep}/>
                     <Button title="Buscar CEP" onClick={this.handleClickSearch}/>
                 </Panel>
-                { cepInfo || loading ? 
+                { (cepInfo && !message) || loading ? 
                     <Panel>
                         { loading ?
                             <div>Carregando informações...</div>
                         :   <Info data={cepInfo}/>
                         }
                     </Panel>
-                : null }
+                : [message ? <Panel error key="error">{message}</Panel> : null] }
             </div>
         );
     }

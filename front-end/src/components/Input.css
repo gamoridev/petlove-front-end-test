@@ -1,0 +1,25 @@
+.Input {
+    width: 30%;
+    min-height: 25px;
+    height: 6vh;
+    font-size: 2vh;
+    font-weight: lighter;
+    margin: 1px;
+    padding: 0 20px;
+}
+
+.Input::placeholder, /* Chrome, Firefox, Opera, Safari 10.1+ */
+.Input:-ms-input-placeholder, /* Internet Explorer 10-11 */
+.Input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #7E7E7E;
+}
+
+/* Remove arrows */
+.Input[type="number"]::-webkit-outer-spin-button, .Input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+.Input[type="number"] {
+    -moz-appearance: textfield;
+}

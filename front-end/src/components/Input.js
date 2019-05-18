@@ -1,11 +1,12 @@
 import React from 'react';
+import './Input.css';
 
-function Search({ children, cep, setCep }) {
+function Input({ children, cep, setCep }) {
     return (
-        <input 
+        <input
+            className="Input"            
             type="number" 
             name="cep" 
-            id="cep" 
             pattern="/^[0-9]{8}$/" 
             placeholder="00000000"
             value={cep}
@@ -14,4 +15,4 @@ function Search({ children, cep, setCep }) {
     );
 }
 
-export default Search;
+export default Input;

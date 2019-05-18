@@ -21,7 +21,7 @@ exports.getCep = (req, res) => {
             })
     } else {
         res.status(406).send({ 
-            message: "Parâmetro inválido",
+            message: "Digite um CEP válido!",
             param: req.params.cep
         });
     }
