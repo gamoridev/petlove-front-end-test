@@ -4,7 +4,9 @@
   "description": "Projeto para teste de Desenvolvedor Front-End na Petlove.",
   "main": "index.js",
   "scripts": {
-    "start": "cd back-end && nodemon server.js"
+    "start": "cd back-end && node server.js",
+    "build": "cd front-end && npm run build",
+    "test": "cd front-end && npm test"
   },
   "repository": {
     "type": "git",
